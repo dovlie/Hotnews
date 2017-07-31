@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+	<title>部门销售经理管理主页</title>
+	
+	<link rel="stylesheet" href="../css/layout.css" type="text/css" media="screen" />
+	<script src="../js/jquery-1.5.2.min.js" type="text/javascript"></script>
+	<script src="../js/hideshow.js" type="text/javascript"></script>
+	<script src="../js/jquery.tablesorter.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="../js/jquery.equalHeight.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() 
+    	{ 
+      	  $(".tablesorter").tablesorter(); 
+   	 } 
+	);
+	$(document).ready(function() {
+
+	//When page loads...
+	$(".tab_content").hide(); //Hide all content
+	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
+	$(".tab_content:first").show(); //Show first tab content
+
+	//On Click Event
+	$("ul.tabs li").click(function() {
+
+		$("ul.tabs li").removeClass("active"); //Remove any "active" class
+		$(this).addClass("active"); //Add "active" class to selected tab
+		$(".tab_content").hide(); //Hide all tab content
+
+		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+		$(activeTab).fadeIn(); //Fade in the active ID content
+		return false;
+	});
+
+});
+    </script>
+    <script type="text/javascript">
+    $(function(){
+        $('.column').equalHeight();
+    });
+</script>
+
+</head>
+
+
+<body>
+
+	<header id="header">
+		<hgroup>
+			<h1 class="site_title"><a href="index.html">通用分销管理系统</a></h1>
+			<h2 class="section_title">部门销售经理</h2><div class="btn_view_site">
+			<a href="http://www.medialoot.com">退出登录</a></div>
+		</hgroup>
+	</header>
+	
+	<section id="secondary_bar">
+		<div class="user">
+			<p>John Doe</p>
+		</div>
+		<div class="breadcrumbs_container">
+			<article class="breadcrumbs"><a href="index.html">分销管理</a>
+			<div class="breadcrumb_divider"></div> <a class="current">部门销售经理</a></article>
+		</div>
+	</section>
+	
+	<aside id="sidebar" class="column">
+		<form class="quick_search">
+			<input type="text" value="Quick Search" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
+		</form>
+		<hr/>
+		<h3>用户信息管理</h3>
+		<ul class="toggle">
+			<li class="icn_new_article"><a href="#">添加用户信息</a></li>
+			<li class="icn_tags"><a href="#">查询用户信息</a></li>
+		</ul>
+		<h3>会员信息管理</h3>
+		<ul class="toggle">
+			<li class="icn_add_user"><a href="#">添加会员信息</a></li>
+			<li class="icn_profile"><a href="#">查询会员信息</a></li>
+		</ul>
+		<h3>供应商信息管理</h3>
+		<ul class="toggle">
+			<li class="icn_folder"><a href="#">添加供应商信息</a></li>
+			<li class="icn_video"><a href="#">查询供应商信息</a></li>
+		</ul>
+		<h3>价格信息管理</h3>
+		<ul class="toggle">
+			<li class="icn_folder"><a href="#">添加价格信息</a></li>
+			<li class="icn_video"><a href="#">查询价格信息</a></li>
+		</ul>
+		
+		<footer>
+			<hr />
+			<p><strong>Copyright &copy; 大连理工大学城市学院</strong></p>
+			<p>design by <a href="http://mozan.site">Shujun Dong</a></p>
+		</footer>
+	</aside><!-- end of sidebar -->
+	
+	<section id="main" class="column">
+		
+		<h4 class="alert_info">欢迎您来到通用分销管理系统。</h4>
+		
+		<div id="maincontent">
+		这里是嵌入区域
+		</div>
+
+		<div class="spacer"></div>
+	</section>
+
+
+</body>
+
+</html>

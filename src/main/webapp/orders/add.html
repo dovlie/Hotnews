@@ -1,0 +1,41 @@
+<div class="row">
+	<div class="col-md-12">
+		<form id="ordersAddForm" action="orders/add.mvc" method="post"
+			novalidate>
+			<div class="control-group form-group">
+				<div class="controls">
+					<label>订单编号:</label> <input type="text" class="form-control"
+						name="oid" required>
+					<p class="help-block"></p>
+				</div>
+			</div>
+			<div class="control-group form-group">
+				<div class="controls">
+					<label>产品编号:</label> <select name="product.pid" class="form-control">
+
+					</select>
+				</div>
+			</div>
+			<div class="control-group form-group">
+				<div class="controls">
+					<label>配送编号:</label> <select name="dispatch.did" class="form-control">
+
+					</select>
+				</div>
+			</div>
+			<div class="control-group form-group">
+				<div class="controls">
+					<label>客户编号:</label> <select name="customer.cid" class="form-control">
+
+					</select>
+
+				</div>
+			</div>
+			<div id="success"></div>
+			<button type="submit" class="btn btn-primary">提交</button>
+			<button id="ordersAddCancelButton" type="button"
+				class="btn btn-primary">取消</button>
+		</form>
+	</div>
+
+</div>

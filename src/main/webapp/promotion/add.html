@@ -1,0 +1,43 @@
+<div class="row">
+            <div class="col-md-12">
+                <form id="promotionAddForm" action="promotion/add.mvc" method="post" novalidate>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>优惠编号:</label>
+                            <input type="text" class="form-control" name="prid" required>
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>优惠类型:</label>
+                            <input type="text" class="form-control" name="prtype" required>
+                        </div>
+                    </div>
+                   	<div class="control-group form-group">
+                        <div class="controls">
+                            <label>优惠价格:</label>
+                            <input type="text" class="form-control" name="prprice" required>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>优惠级别:</label>
+                            <input type="text" class="form-control" name="rank" required>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>备注:</label>
+                            <input type="text" class="form-control" name="remarks" required>
+                        </div>
+                    </div>
+                    
+                    <div id="success"></div>
+                    <!-- For success/fail messages -->
+                    <button type="submit" class="btn btn-primary">提交</button>
+                    <button id="promotionAddCancelButton" type="button" class="btn btn-primary">取消</button>
+                </form>
+            </div>
+
+        </div>

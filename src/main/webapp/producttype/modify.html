@@ -1,0 +1,26 @@
+
+<div class="row">
+            <div class="col-md-12">
+
+                <form  id="ProductTypeModifyForm" action="producttype/modify.mvc" method="post" novalidate>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>产品类型编号:</label>
+                            <input type="text" class="form-control" name="ptid" required data-validation-required-message="Please enter your name.">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>产品类型名称:</label>
+                            <input type="tel" class="form-control" name="ptname"  required data-validation-required-message="Please enter your phone number.">
+                        </div>
+                    </div>
+                    <div id="success"></div>
+                    <!-- For success/fail messages -->
+                    <button type="submit" class="btn btn-primary">提交</button>
+                    <button type="button" id="SupplierModifyCancelButton" class="btn btn-primary">取消</button>
+                </form>
+            </div>
+
+        </div>
