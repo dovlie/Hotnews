@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:oxm="http://www.springframework.org/schema/oxm"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
+		http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-4.3.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-4.3.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd
+		http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd">
+
+	<!-- 设置扫描Bean的路径 -->
+	<context:component-scan base-package="com.city.erp"></context:component-scan>
+	<!--启用Spring MVC注释  -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+	<!-- 启用事务注释 -->
+	<tx:annotation-driven/>
+	<!-- 启用AspectJ注释的Aspect和Advice编程 -->
+	<aop:aspectj-autoproxy/>
+	
+	
+	<!-- Jackson JSON结果解析器 -->
+	<bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
+	
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	        <property name="messageConverters">
+	          <list>
+	            <ref bean="jsonConverter"/>
+	          </list>
+	    </property>
+	</bean>
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></bean>
+
+	<mvc:cors>
+		<mvc:mapping path="/**" />
+	</mvc:cors>
+	
+	<mvc:interceptors>  
+        <!-- 配置访问拦截器 -->  
+        <mvc:interceptor>  
+            <mvc:mapping path="/"/>
+            <mvc:mapping path="/customer/**" />  
+            <mvc:mapping path="/dispatch/**" />   
+            <mvc:mapping path="/orders/**" />  
+            <mvc:mapping path="/origin/**" />  
+            <mvc:mapping path="/price/**" />  
+            <mvc:mapping path="/procurementprogram/**" /> 
+            <mvc:mapping path="/product/**" /> 
+            <mvc:mapping path="/producttype/**" /> 
+            <mvc:mapping path="/promotion/**" /> 
+            <mvc:mapping path="/publicity/**" /> 
+            <mvc:mapping path="/supplier/**" />  
+            <mvc:mapping path="/vip/**" /> 
+            <mvc:mapping path="/warehouse/**" />   
+            <bean id="LoginInterceptor" class="com.city.erp.interceptor.LoginInterceptor"/>  
+        </mvc:interceptor>  
+    </mvc:interceptors>  
+
+</beans>
